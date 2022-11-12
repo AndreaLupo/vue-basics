@@ -3,7 +3,8 @@ const app = Vue.createApp({
     return {
       counter: 0,
       name: '',
-      confirmedName: ''
+      confirmedName: '',
+      lastName: ''
     };
   },
   computed: {
@@ -13,6 +14,22 @@ const app = Vue.createApp({
         return '';
       }
       return this.name + ' ' + 'Lupo';
+    }
+  },
+  watch: {
+    /* Not a good use case, better use a computed property for this 
+    name(newValue, oldValue) {
+      // this.fullName = this.name + ' Lupo';
+      this.fullName = newValue + ' Lupo';
+    } */
+    counter(newValue) {
+      // I can omit the newValue paramater
+      if(newValue > 50) {
+        const that = this;
+        setTimeout(function() {
+          that.counter = 0
+        }, 1000);
+      }
     }
   },
   methods: {
