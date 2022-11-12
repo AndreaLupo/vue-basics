@@ -18,19 +18,19 @@
     </header>
     <section id="events">
       <h2>Events in Action</h2>
-      <button v-on:click="add">Add 10</button>
-      <button v-on:click="reduce(5)">Reduce 5</button>
+      <button @click="add">Add 10</button>
+      <button @click="reduce(5)">Reduce 5</button>
       <p>Result: {{ counter }}</p>
       <!-- not using parenthesis will have event object, if call the method you're overriding it! -->
-      <input type="text" v-on:input="setName" v-on:keyup.enter="confirmName">
+      <input type="text" @input="setName" @keyup.enter="confirmName">
 
-      <input type="text" v-on:input="setNameAndSurname($event, 'Lupo')">
+      <input type="text" @input="setNameAndSurname($event, 'Lupo')">
       <p>Your name: {{name}}</p>
       <p>Your confirmed name: {{confirmedName}}</p>
       <!-- NOT GOOD! <p>Your output name: {{outputFullName()}}</p> -->
       <p>Your output name: {{fullName}}</p>
 
-      <form v-on:submit.prevent="submitForm">
+      <form @submit.prevent="submitForm">
         <input type="text">
         <button>Sign Up</button>
       </form>
